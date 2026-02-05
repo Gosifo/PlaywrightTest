@@ -9,10 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove=".github\**" />
-    <EmbeddedResource Remove=".github\**" />
-    <None Remove=".github\**" />
-    <ReqnrollFeatureFile Remove=".github\**" />
+    <None Include=".github\workflows\playwright.yml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,14 +30,6 @@
     <Using Include="NUnit.Framework" />
     <Using Include="System.Text.RegularExpressions" />
     <Using Include="System.Threading.Tasks" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ReqnrollObsoleteCodeBehindFiles Remove=".github\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ReqnrollLegacyCodeBehindFiles Remove=".github\**" />
   </ItemGroup>
 
 </Project>
