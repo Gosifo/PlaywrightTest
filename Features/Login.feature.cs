@@ -18,18 +18,18 @@ namespace UiPlaywrightTest.Features
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Reqnroll", "3.0.0.0")]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::NUnit.Framework.TestFixtureAttribute()]
-    [global::NUnit.Framework.DescriptionAttribute("Test2")]
+    [global::NUnit.Framework.DescriptionAttribute("Login")]
     [global::NUnit.Framework.FixtureLifeCycleAttribute(global::NUnit.Framework.LifeCycle.InstancePerTestCase)]
-    public partial class Test2Feature
+    public partial class LoginFeature
     {
         
         private global::Reqnroll.ITestRunner testRunner;
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new global::System.Globalization.CultureInfo("en-US"), "Features", "Test2", null, global::Reqnroll.ProgrammingLanguage.CSharp, featureTags, InitializeCucumberMessages());
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new global::System.Globalization.CultureInfo("en-US"), "Features", "Login", null, global::Reqnroll.ProgrammingLanguage.CSharp, featureTags, InitializeCucumberMessages());
         
-#line 1 "Test2.feature"
+#line 1 "Login.feature"
 #line hidden
         
         [global::NUnit.Framework.OneTimeSetUpAttribute()]
@@ -105,22 +105,30 @@ namespace UiPlaywrightTest.Features
         
         private static global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages InitializeCucumberMessages()
         {
-            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/Test2.feature.ndjson", 3);
+            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/Login.feature.ndjson", 4);
         }
         
         [global::NUnit.Framework.TestAttribute()]
-        [global::NUnit.Framework.DescriptionAttribute("Test environment setup 2")]
-        [global::NUnit.Framework.CategoryAttribute("tag1")]
-        public async global::System.Threading.Tasks.Task TestEnvironmentSetup2()
+        [global::NUnit.Framework.DescriptionAttribute("Invalid login details test")]
+        [global::NUnit.Framework.CategoryAttribute("login")]
+        [global::NUnit.Framework.TestCaseAttribute("Sam.Phil12@yahoo.com", "0", null)]
+        [global::NUnit.Framework.TestCaseAttribute("12Sam.Phil@yahoo.com", "1", null)]
+        public async global::System.Threading.Tasks.Task InvalidLoginDetailsTest(string userName, string @__pickleIndex, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
-                    "tag1"};
+            string[] @__tags = new string[] {
+                    "login"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
-            string pickleIndex = "0";
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Test environment setup 2", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
+            argumentsOfScenario.Add("UserName", userName);
+            string pickleIndex = @__pickleIndex;
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Invalid login details test", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 5
+#line 4
 this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -130,14 +138,20 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             else
             {
                 await this.ScenarioStartAsync();
+#line 5
+ await testRunner.GivenAsync("I navigate to evri site", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
 #line 6
- await testRunner.GivenAsync("I navigate to the Evri page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.WhenAsync("I select the login button", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 7
- await testRunner.WhenAsync("I click on the login button", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+ await testRunner.AndAsync(string.Format("I enter invalid username and password credential for \'{0}\'", userName), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 8
- await testRunner.ThenAsync("I should see the login form", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+ await testRunner.ThenAsync("I should see the \'Sign In\' page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line hidden
+#line 9
+ await testRunner.AndAsync("I should see the login form", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

@@ -18,18 +18,18 @@ namespace UiPlaywrightTest.Features
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Reqnroll", "3.0.0.0")]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::NUnit.Framework.TestFixtureAttribute()]
-    [global::NUnit.Framework.DescriptionAttribute("Test")]
+    [global::NUnit.Framework.DescriptionAttribute("Test parcel delivery")]
     [global::NUnit.Framework.FixtureLifeCycleAttribute(global::NUnit.Framework.LifeCycle.InstancePerTestCase)]
-    public partial class TestFeature
+    public partial class TestParcelDeliveryFeature
     {
         
         private global::Reqnroll.ITestRunner testRunner;
         
         private static string[] featureTags = ((string[])(null));
         
-        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new global::System.Globalization.CultureInfo("en-US"), "Features", "Test", null, global::Reqnroll.ProgrammingLanguage.CSharp, featureTags, InitializeCucumberMessages());
+        private static global::Reqnroll.FeatureInfo featureInfo = new global::Reqnroll.FeatureInfo(new global::System.Globalization.CultureInfo("en-US"), "Features", "Test parcel delivery", null, global::Reqnroll.ProgrammingLanguage.CSharp, featureTags, InitializeCucumberMessages());
         
-#line 1 "Test1.feature"
+#line 1 "ParcelEstimate.feature"
 #line hidden
         
         [global::NUnit.Framework.OneTimeSetUpAttribute()]
@@ -105,22 +105,22 @@ namespace UiPlaywrightTest.Features
         
         private static global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages InitializeCucumberMessages()
         {
-            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/Test1.feature.ndjson", 3);
+            return new global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages("Features/ParcelEstimate.feature.ndjson", 3);
         }
         
         [global::NUnit.Framework.TestAttribute()]
-        [global::NUnit.Framework.DescriptionAttribute("Test environment setup")]
+        [global::NUnit.Framework.DescriptionAttribute("Check parcel delivery estimate")]
         [global::NUnit.Framework.CategoryAttribute("tag1")]
-        public async global::System.Threading.Tasks.Task TestEnvironmentSetup()
+        public async global::System.Threading.Tasks.Task CheckParcelDeliveryEstimate()
         {
             string[] tagsOfScenario = new string[] {
                     "tag1"};
             global::System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new global::System.Collections.Specialized.OrderedDictionary();
             string pickleIndex = "0";
-            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Test environment setup", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
+            global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Check parcel delivery estimate", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 5
+#line 4
 this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -130,14 +130,18 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
             else
             {
                 await this.ScenarioStartAsync();
+#line 5
+ await testRunner.GivenAsync("I navigate to evri site", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line hidden
 #line 6
- await testRunner.GivenAsync("I navigate to the Evri page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.WhenAsync("I enter the from post code \'SW1A 1AA\' to post code \'SW1A 2AA\' and weight \'1kg - 2" +
+                        "kg\'", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 7
- await testRunner.WhenAsync("I click on the login button", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+ await testRunner.AndAsync("select send a parcel button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 8
- await testRunner.ThenAsync("I should see the login form", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+ await testRunner.ThenAsync("I should see the \'Evri | Cheap Parcel Delivery & Courier Service UK\' page", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
