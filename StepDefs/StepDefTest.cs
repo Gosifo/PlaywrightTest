@@ -1,4 +1,4 @@
-using Microsoft.Playwright;
+using static Microsoft.Playwright.Assertions;
 using Reqnroll;
 using UiPlaywrightTest.Drivers;
 using UiPlaywrightTest.Pages;
@@ -53,13 +53,13 @@ namespace UiPlaywrightTest.StepDefs
 		[Then("I should see the {string} page")]
 		public async Task ThenIShouldSeeThePageAsync(string expectedPageTitle)
 		{
-			await Assertions.Expect(_driver.Page).ToHaveTitleAsync(expectedPageTitle);
+			await Expect(_driver.Page).ToHaveTitleAsync(expectedPageTitle);
 		}
 
 		[Then("I should see the login form")]
 		public async Task ThenIShouldSeeTheLoginFormAsync()
 		{
-			await Assertions.Expect(_logInPage.LogInForm).ToBeVisibleAsync();
+			await Expect(_logInPage.LogInForm).ToBeVisibleAsync();
 		}
 	}
 }
